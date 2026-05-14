@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
 import { useRequests } from '../../hooks/useRequests'
 import StatusBadge from '../../components/common/StatusBadge'
+import PriorityBadge from '../../components/common/PriorityBadge'
 import Button from '../../components/common/Button'
+
 
 export default function RequestList() {
   const { requests, loading, error } = useRequests()
@@ -29,6 +31,7 @@ export default function RequestList() {
                   <th className="px-4 py-3 font-medium">Título</th>
                   <th className="px-4 py-3 font-medium">Área</th>
                   <th className="px-4 py-3 font-medium">Estado</th>
+                  <th className="px-4 py-3 font-medium">Prioridad</th>
                   <th className="px-4 py-3 font-medium">Fecha</th>
                 </tr>
               </thead>
@@ -42,6 +45,11 @@ export default function RequestList() {
                     </td>
                     <td className="px-4 py-3 text-gray-600">{r.area_name}</td>
                     <td className="px-4 py-3"><StatusBadge status={r.status} /></td>
+                    
+                    <td className="px-4 py-3">
+                      <PriorityBadge priority={r.priority} />
+                    </td>
+                    
                     <td className="px-4 py-3 text-gray-400">
                       {new Date(r.created_at).toLocaleDateString('es-MX')}
                     </td>

@@ -39,7 +39,8 @@ export default function UserList() {
                 <th className="px-4 py-3 font-medium">Nombre</th>
                 <th className="px-4 py-3 font-medium">Email</th>
                 <th className="px-4 py-3 font-medium">Rol</th>
-                <th className="px-4 py-3 font-medium"></th>
+                <th className="px-4 py-3 font-medium">Teléfono</th>
+                <th className="px-4 py-3 font-medium text-right">Acciones</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
@@ -52,6 +53,9 @@ export default function UserList() {
                       {u.role}
                     </span>
                   </td>
+                  
+                  <td className="px-4 py-3 text-gray-600">{u.phone || 'Sin teléfono'}</td>
+                  
                   <td className="px-4 py-3 text-right">
                     <Button variant="danger" onClick={() => handleDelete(u.id)}>Eliminar</Button>
                   </td>
